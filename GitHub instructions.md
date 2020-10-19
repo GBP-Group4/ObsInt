@@ -31,7 +31,7 @@ There is a visual of how far behind your branch is from main on GitHub under Bra
 Double check with Group members before merging.\
 Make sure you are on a branch before you start coding. Get in the habit of checking.
 
-# get the latest pull version from main (Befor October 2020 it was referred to as master)
+# get the latest pull version from main (Before October 2020 it was referred to as master)
 git pull origin main
 # Checkout current branch or create a branch
 git checkout <branch_name>
