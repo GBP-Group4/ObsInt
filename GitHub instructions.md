@@ -23,7 +23,7 @@ git push origin :BranchName
 # Delete a branch locally (Force delete use -D)
 git branch -d <branch_name>
 
-Steps to follow:
+# Steps to follow:
 NEVER work on the main branch\
 Tell GROUP every time a pull request has been merged with main. Don’t let your group members fall behind.\
 Pull often, just to be sure. Even if no one has told you about changes on main, pull anyways.\
