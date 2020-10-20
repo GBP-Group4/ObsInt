@@ -21,3 +21,16 @@ create table s2218216.block as (
   where block not in 
       (select distinct on (longit, latit) block from s2218216.dupblocks)
 )
+
+/*
+Curation of the road_access table
+*/
+select block, count(block)from block_road_access 
+group by block having count(block)>1;
+
+select block,count(block),sum(roadlength)
+from block_road_access group by block;
+
+create table s2218216.cured_road 
+as select block,count(block),sum(roadlength) as roadlength
+from public.block_road_access group by block;
