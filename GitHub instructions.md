@@ -4,8 +4,8 @@
 mkdir ProjectWork\
 cd ProjectWork\
 git init\
-git config user.email "insert github email here"\
-git config user.name "insert github real name here"\
+git config --global user.email "insert github email here"\
+git config --global user.name "insert github name here"\
 git remote add origin https://github.com/GBP-Group4/ObsInt \
 git pull origin main
 # List branches
