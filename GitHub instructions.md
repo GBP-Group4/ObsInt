@@ -1,5 +1,6 @@
-# Create folder in JupyterHub
-# In terminal
+# Begin using GitHub in JupyterHub
+# Start new terminal
+
 mkdir ProjectWork\
 cd ProjectWork\
 git init\
@@ -31,12 +32,14 @@ There is a visual of how far behind your branch is from main on GitHub under Bra
 Double check with Group members before merging.\
 Make sure you are on a branch before you start coding. Get in the habit of checking.
 
-# get the latest pull version from main (Before October 2020 it was referred to as master)
+# get the latest pull version from main (Before October 2020 it was referred to as master, courtesy Black Lives Matter)
 git pull origin main
 # Checkout current branch or create a branch
 git checkout <branch_name>
-# after making changes to the file, commit locally frequently
+# after making changes to the file, commit locally
 git commit -m 'Type message here'
 # push to GitHub once you feel its ready to merge with main.
 git push origin <branch_name>
+# merge your branch with main. Comment on merge request.
+git merge main
 # review on GitHub and you can delete branch name after successful merge
