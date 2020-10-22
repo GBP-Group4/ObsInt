@@ -2,7 +2,8 @@
 select count(distinct b.block)
 from public.block as b
 where b.block not in (select block from public.observation)
-
+-- select blocks inside NL
+WITH blks AS ( SELECT b.* FROM public.block as b WHERE b.latit <>0) SELECT block, longit, latit, geom FROM (SELECT block, longit, latit, geom, ROW_NUMBER() OVER (PARTITION BY (longit, latit) ORDER BY block DESC) rn FROM blks ) tmp WHERE rn = 1
 
 /*
 Curation of the block table
