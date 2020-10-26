@@ -60,3 +60,36 @@ create table s2333902.obsint_weather as
 from s2333902.obsint as o
 inner join s2333902.weather as w on o.block = w.block and o.obsdate = w.to_date
 order by o.obsdate,o.block asc)
+		  
+/*
+Curation of tables
+*/
+-- blocks only in NL
+create table s6047025.block_nl as (
+	WITH blks AS ( SELECT b.* FROM public.block as b WHERE b.latit <>0) SELECT block, longit, latit, geom FROM (SELECT block, longit, latit, geom, ROW_NUMBER() OVER (PARTITION BY (longit, latit) ORDER BY block DESC) rn FROM blks ) tmp WHERE rn = 1
+
+)
+-- create observer intensity table for blocks inside NL
+create table s6047025.obsint as
+(select i.obsint,i.block,i.obsdate
+from (select count(idd) as obsint,o.block,o.obsdate
+            from observation as o
+			where o.obsdate between '2017-01-01' and '2017-06-30'
+            group by o.obsdate,o.block ) as i
+where i.block in (select block from s6047025.block_nl)
+order by i.obsdate,i.block asc)
+
+-- create weather table for blocks inside NL
+create table s6047025.weather as
+(select w.to_date,w.block,w.temper,w.precip
+from (select t.block,t.temper,p.precip,to_date(t.dtime::text,'YYYYMMDD')
+      from temperature as t
+      inner join precipitation as p on t.dtime = p.dtime and p.block = t.block 
+	  where t.dtime between 20170101 and 20170630) as w
+where w.block in (select block from s6047025.block_nl)
+order by w.block,w.to_date asc)
+
+-- create road length table for blocks inside NL
+create table s6047025.roadlen 
+as select block,count(block),sum(roadlength) as roadlength
+from public.block_road_access where block in (select block from s6047025.block_nl) group by block;
