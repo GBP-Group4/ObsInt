@@ -1,5 +1,5 @@
 # Begin using GitHub in JupyterHub
-# Start new terminal
+## Start new terminal
 
 mkdir ProjectWork\
 cd ProjectWork\
@@ -8,20 +8,20 @@ git config --global user.email "insert github email here"\
 git config --global user.name "insert github name here"\
 git remote add origin https://github.com/GBP-Group4/ObsInt \
 git pull origin main
-# List branches
+## List branches
 git branch -a
-# Checkout existing branch
+## Checkout existing branch
 git checkout <branch_name>
-# Create new branch and publish to in GitHub 
+## Create new branch and publish to in GitHub 
 git checkout -b <new_branch>\
 git push -u origin <new_branch>
-# After working on the code
+## After working on the code
 git commit -m 'Type message here'
-# For an already existing branch in GitHub
+## For an already existing branch in GitHub
 git push origin <branch_name>
-# Delete a branch on GitHub 
+## Delete a branch on GitHub 
 git push origin :BranchName
-# Delete a branch locally (Force delete use -D)
+## Delete a branch locally (Force delete use -D)
 git branch -d <branch_name>
 
 # Steps to follow:
@@ -32,14 +32,19 @@ There is a visual of how far behind your branch is from main on GitHub under Bra
 Double check with Group members before merging.\
 Make sure you are on a branch before you start coding. Get in the habit of checking.
 
-# get the latest pull version from main (Before October 2020 it was referred to as master, courtesy Black Lives Matter)
+## get the latest pull version from main (Before October 2020 it was referred to as master, courtesy Black Lives Matter)
 git pull origin main
-# Checkout current branch or create a branch
+## Checkout current branch or create a branch
 git checkout <branch_name>
-# after making changes to the file, commit locally
+## add file you want to make changes to
+git add <file_name>
+## after making changes to the file, commit locally with a meaningful message
 git commit -m 'Type message here'
 # push to GitHub once you feel its ready to merge with main.
 git push origin <branch_name>
-# merge your branch with main. Comment on merge request.
+## or 
+git push
+## merge your branch with main. Comment on pull request.
 git merge main
-# review on GitHub and you can delete branch name after successful merge
+## review on GitHub and you can delete branch name after successful merge
+git branch -d <branch_name>
