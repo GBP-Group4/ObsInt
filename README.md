@@ -4,7 +4,7 @@ In this repository, there are three (3) folders that contain the codes strings a
 As for the 'output' folder, there contains a separate Jupyter notebook that contains the code used to conduct random forest analysis and geo-regression on the dataframe. With each input, similar to the notebook used for pre-processing, there is also a string line that explains what is being conducted at that particular stage. Within this notebook, the visualisations used for this project are also presented. Finally, aside from the folders and documents containing the codes used for this project, the project repository also contains default GitHub instructions and this README file.
 
 ## Data Pre-processing
-Jupyter notebook named pre-processing.ipynb shows the following steps:
+Jupyter notebook named __*pre-processing.ipynb*__ executes the following workflow of pre-processing data to generate observer intensity for blocks within Netherlands for the time period *2017-01-01* and *2017-06-30*, along with other attributes.
 1. **Read** csv files of weather (*weather.csv*), observer intensity (*ObsIntTable.csv*) and road length (*roadlen.csv*).
 2. **Read** sql table of blocks and demography as GeoDataFrame 
 3. **Spatial join** blocks and demography. Blocks with no population are set to 0.
