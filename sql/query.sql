@@ -31,17 +31,11 @@ create table s6047025.roadlen
 as select block,count(block),sum(roadlength) as roadlength
 from public.block_road_access where block in (select block from s6047025.block_nl) group by block;
 
--- get count of blocks in block table that are not in observation
-select count(distinct b.block)
-from public.block as b
-where b.block not in (select block from public.observation)
--- select blocks inside NL
-WITH blks AS ( SELECT b.* FROM public.block as b WHERE b.latit <>0) SELECT block, longit, latit, geom FROM (SELECT block, longit, latit, geom, ROW_NUMBER() OVER (PARTITION BY (longit, latit) ORDER BY block DESC) rn FROM blks ) tmp WHERE rn = 1
 
 
 /*
 
-Other sql queries. tried and tested.
+sql queries. tried and tested.
 
 /*
 Curation of the block table
