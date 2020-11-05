@@ -13,7 +13,7 @@ Jupyter notebook named __*pre-processing.ipynb*__ executes the following workflo
 5. **Merge** (right join) observer intensity and weather on block number and observation time. When there are no observations, observer intensity is set as 0.
 6. **Merge** (left join) demography with road length on block number. Blocks with null road length are set as 0.
 7. **Merge** (left join) 5 and 6 on block number.
-8. **Select** attributes: *block*,*longit*,*latit*,*obstime*,*temper*,*precip*,*pop*,*roadlen*,*obsint* and export the dataframe to csv file: *obsInt_obsTime_with_variables.csv*. This file will be created in __*output*__ folder for analysis.\ 
+8. **Select** attributes: *block*,*longit*,*latit*,*obstime*,*temper*,*precip*,*pop*,*roadlen*,*obsint* and export the dataframe to csv file: *obsInt_obsTime_with_variables.csv*. This file will be created in __*output*__ folder for analysis. If you want to access the file without executing in the python notebook then download the 450MB file here from Google drive link for [*obsInt_obsTime_with_variables.csv*](https://drive.google.com/file/d/1X-EIGTc9WeAspLmVDpEah3gJJWvhoqDb/view?usp=sharing) and save it in the __*output*__ folder.
 
 ## Data Processing and Output
 For this project, the group decided to conduct random forest analysis and geo-regression on the processed dataset. The progress of this phase of the project can be found in the __*Random Forest and Regression.ipynb*__ Jupyter notebook, which can be found in the __*output*__ folder.
